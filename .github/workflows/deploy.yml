@@ -30,13 +30,13 @@ jobs:
 
       - name: Login to Amazon ECR
         run: |
-          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 515966526917.dkr.ecr.$AWS_REGION.amazonaws.com
+          aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 705960224859.dkr.ecr.$AWS_REGION.amazonaws.com
 
       - name: Build, Tag, and Push Docker image to ECR
         run: |
           docker build -t $ECR_REPOSITORY .
-          docker tag $ECR_REPOSITORY:latest 515966526917.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
-          docker push 515966526917.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+          docker tag $ECR_REPOSITORY:latest 705960224859.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
+          docker push 705960224859.dkr.ecr.$AWS_REGION.amazonaws.com/$ECR_REPOSITORY:latest
 
       - name: Deploy ECS Service
         run: |
